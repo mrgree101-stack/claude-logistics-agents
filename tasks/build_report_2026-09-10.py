@@ -1,11 +1,16 @@
 # -*- coding: utf-8 -*-
 """Формирование итогового Excel-отчёта: авто LCL Китай — Москва, 10.09.2026."""
+import os
 from datetime import date
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
 
-OUT = r"C:\Users\polkanov\Рабочая\ассистент_руководителя\отчёты\анализ_рынка_логистики_Китай_Москва_2026-09-10.xlsx"
+# Путь вычисляется от расположения самого скрипта: ../отчёты относительно tasks/
+OUT = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), os.pardir, "отчёты",
+    "анализ_рынка_логистики_Китай_Москва_2026-09-10.xlsx",
+)
 
 HEADERS = [
     "№", "Наименование организации", "Вид перевозки", "Тип перевозки / загрузки",
